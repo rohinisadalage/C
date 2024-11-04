@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+void toTernary(int num) {
+    if (num == 0) {
+        printf("0");
+        return;
+    }
+    int ternary[32];  
+    int i = 0;
+    while (num > 0) {
+        ternary[i++] = num % 3;
+        num /= 3;
+    }
+    for (int j = i - 1; j >= 0; j--) {
+        printf("%d", ternary[j]);
+    }
+}
+int main() {
+    int num;
+    printf("Enter a number to convert to ternary: ");
+    scanf("%d", &num);
+    printf("Ternary representation: ");
+    toTernary(num);
+    printf("\n");
+    return 0;
+}
