@@ -1,0 +1,43 @@
+#include <stdio.h>
+void numberToWords(int n){
+    char *ones[] = {"", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};
+    char *teens[] = {"Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"};
+    char *tens[] = {"", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"};
+    char result[1000] = ""; 
+    int parts[4];           
+    int i = 0, digit;
+    for (i = 0; i < 4; i++) {
+        parts[i] = num % 10;
+        num /= 10;
+    }
+    for (i = 3; i >= 0; i--) {
+        digit = parts[i];
+        if (i == 3 && digit > 0) {
+            printf("%s Thousand ", ones[digit]);
+        } else if (i == 2 && digit > 0) {
+            printf("%s Hundred ", ones[digit]);
+        } else if (i == 1) {
+            if (digit == 1) {
+                printf("%s ", teens[parts[0]]);
+                break;
+            } else if (digit > 1) {
+                printf("%s ", tens[digit]);
+            }
+        } else if (i == 0 && digit > 0) {
+            printf("%s ", ones[digit]);
+        }
+    }
+    printf("\n");
+}
+int main() {
+    int num;
+    printf("Enter a number (0 to 9999): ");
+    scanf("%d", &num);
+    if (num < 0 || num > 9999) {
+        printf("Number out of range.\n");
+    } else {
+        printf("Number in words: ");
+        numberToWords(num);
+    }
+    return 0;
+}
