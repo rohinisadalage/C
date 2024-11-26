@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    float principal, rate, time, simple_interest;
+    int i = 0;
+
+    printf("Enter the principal amount: ");
+    scanf("%f", &principal);
+
+    printf("Enter the annual interest rate (in percentage): ");
+    scanf("%f", &rate);
+
+    printf("Enter the time period (in years): ");
+    scanf("%f", &time);
+
+    while (i < 1) { // Use a `while` loop for calculating the interest once
+        simple_interest = (principal * rate * time) / 100;
+        i++; // Increment the loop counter to exit the loop
+    }
+
+    printf("Simple Interest = %.2f\n", simple_interest);
+
+    return 0;
+}
