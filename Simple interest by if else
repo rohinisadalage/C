@@ -1,0 +1,25 @@
+#include <stdio.h>
+int main() {
+    float principal, rate, time, simple_interest;
+    printf("Enter the principal amount: ");
+    scanf("%f", &principal);
+    if (principal <= 0) {
+        printf("Invalid principal amount. It should be greater than 0.\n");
+    } else {
+        printf("Enter the rate of interest (in percentage): ");
+        scanf("%f", &rate);
+        if (rate <= 0) {
+            printf("Invalid rate of interest. It should be greater than 0.\n");
+        } else {
+            printf("Enter the time (in years): ");
+            scanf("%f", &time);
+            if (time <= 0) {
+                printf("Invalid time. It should be greater than 0.\n");
+            } else {
+                simple_interest = (principal * rate * time) / 100;
+                printf("The Simple Interest is: %.2f\n", simple_interest);
+            }
+        }
+    }
+    return 0;
+}
