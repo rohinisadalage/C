@@ -1,0 +1,31 @@
+#include <stdio.h>
+void decimalToTernary(int number) {
+    char ternary[32]; 
+    int index = 0;    
+    if (number == 0) {
+        printf("Ternary: 0\n");
+        return;
+    }
+    int isNegative = (number < 0);
+    if (isNegative) {
+        number = -number;
+  }
+    do {
+        ternary[index++] = (number % 3) + '0';
+        number /= 3;                          
+    } while (number > 0);
+    if (isNegative) {
+        printf("Ternary: -");
+    }
+    for (int i = index - 1; i >= 0; i--) {
+        putchar(ternary[i]);
+    }
+    printf("\n");
+}
+int main() {
+    int number;
+    printf("Enter a decimal number: ");
+    scanf("%d", &number);
+    decimalToTernary(number);
+    return 0;
+}
