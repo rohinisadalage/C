@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+class B;
+class A {
+private:
+    int dataA;
+public:
+    A(int val) : dataA(val) {}
+    friend void showData(A, B);
+};
+class B {
+private:
+    int dataB;
+public:
+    B(int val) : dataB(val) {}
+    friend void showData(A, B);
+};
+void showData(A objA, B objB) {
+    cout << "Data from class A: " << objA.dataA << endl;
+    cout << "Data from class B: " << objB.dataB << endl;
+}
+int main() {
+    A objA(10);
+    B objB(20);
+    showData(objA, objB);
+    return 0;
+}
