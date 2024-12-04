@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+class MyClass {
+private:
+    int privateValue;
+public:
+    MyClass(int value = 0) : privateValue(value) {}
+    friend void displayAndModify(MyClass& obj);
+};
+void displayAndModify(MyClass& obj) {
+    char choice;
+    do {
+        cout << "Current private value: " << obj.privateValue << endl;
+        cout << "Enter a new value: ";
+        cin >> obj.privateValue;
+        cout << "Do you want to modify again? (y/n): ";
+        cin >> choice;
+    } while (choice == 'y' || choice == 'Y');
+}
+int main() {
+    MyClass obj(10); 
+    cout << "Welcome to the friend function demo!\n";
+    displayAndModify(obj); // Call the friend function
+    cout << "Final value of privateValue: " << obj.privateValue << endl;
+    return 0;
+}
