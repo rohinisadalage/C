@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+void numberToWords(int number) {
+    if (number < 0 || number > 99) {
+        printf("Number out of range. Please enter a number between 0 and 99.\n");
+        return;
+    }
+    
+    if (number == 0) {
+        printf("Zero\n");
+    } else {
+        if (number / 10 == 1) {
+            if (number == 10) printf("Ten\n");
+            else if (number == 11) printf("Eleven\n");
+            else if (number == 12) printf("Twelve\n");
+            else if (number == 13) printf("Thirteen\n");
+            else if (number == 14) printf("Fourteen\n");
+            else if (number == 15) printf("Fifteen\n");
+            else if (number == 16) printf("Sixteen\n");
+            else if (number == 17) printf("Seventeen\n");
+            else if (number == 18) printf("Eighteen\n");
+            else if (number == 19) printf("Nineteen\n");
+        } else {
+            if (number / 10 == 2) printf("Twenty");
+            else if (number / 10 == 3) printf("Thirty");
+            else if (number / 10 == 4) printf("Forty");
+            else if (number / 10 == 5) printf("Fifty");
+            else if (number / 10 == 6) printf("Sixty");
+            else if (number / 10 == 7) printf("Seventy");
+            else if (number / 10 == 8) printf("Eighty");
+            else if (number / 10 == 9) printf("Ninety");
+            if (number % 10 != 0) {
+                if (number / 10 != 0) printf(" ");
+                if (number % 10 == 1) printf("One\n");
+                else if (number % 10 == 2) printf("Two\n");
+                else if (number % 10 == 3) printf("Three\n");
+                else if (number % 10 == 4) printf("Four\n");
+                else if (number % 10 == 5) printf("Five\n");
+                else if (number % 10 == 6) printf("Six\n");
+                else if (number % 10 == 7) printf("Seven\n");
+                else if (number % 10 == 8) printf("Eight\n");
+                else if (number % 10 == 9) printf("Nine\n");
+            } else {
+                printf("\n");
+            }
+        }
+    }
+}
+
+int main() {
+    int number;
+    printf("Enter a number (0-99): ");
+    scanf("%d", &number);
+
+    numberToWords(number);
+
+    return 0;
+}
