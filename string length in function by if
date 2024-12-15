@@ -1,0 +1,22 @@
+#include <stdio.h>
+int string_length(const char *str) {
+    int length = 0;
+    while (1) {
+        if (str[length] == '\0') {
+            break; 
+        }
+        length++; 
+    }
+    return length; 
+}
+int main() {
+    char str[100];
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+    if (str[string_length(str) - 1] == '\n') {
+        str[string_length(str) - 1] = '\0';
+    }
+    int len = string_length(str);
+    printf("The length of the string is: %d\n", len);
+    return 0;
+}
