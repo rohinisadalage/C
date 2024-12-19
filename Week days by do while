@@ -1,0 +1,46 @@
+#include <stdio.h>
+int main() {
+    int choice;
+    do {
+        printf("\nSelect a day of the week:\n");
+        printf("1. Monday\n");
+        printf("2. Tuesday\n");
+        printf("3. Wednesday\n");
+        printf("4. Thursday\n");
+        printf("5. Friday\n");
+        printf("6. Saturday\n");
+        printf("7. Sunday\n");
+        printf("0. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        switch (choice) {
+            case 1:
+                printf("You selected Monday.\n");
+                break;
+            case 2:
+                printf("You selected Tuesday.\n");
+                break;
+            case 3:
+                printf("You selected Wednesday.\n");
+                break;
+            case 4:
+                printf("You selected Thursday.\n");
+                break;
+            case 5:
+                printf("You selected Friday.\n");
+                break;
+            case 6:
+                printf("You selected Saturday.\n");
+                break;
+            case 7:
+                printf("You selected Sunday.\n");
+                break;
+            case 0:
+                printf("Exiting the program. Goodbye!\n");
+                break;
+            default:
+                printf("Invalid choice. Please try again.\n");
+        }
+    } while (choice != 0);
+    return 0;
+}
