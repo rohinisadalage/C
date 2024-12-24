@@ -1,0 +1,35 @@
+#include <stdio.h>
+int main() {
+    int choice;
+    float length, breadth, radius, perimeter;
+    do {
+        printf("Choose a shape to calculate the perimeter:\n");
+        printf("1. Rectangle\n");
+        printf("2. Circle\n");
+        printf("3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        switch (choice) {
+            case 1:
+                printf("Enter the length of the rectangle: ");
+                scanf("%f", &length);
+                printf("Enter the breadth of the rectangle: ");
+                scanf("%f", &breadth);
+                perimeter = 2 * (length + breadth);
+                printf("The perimeter of the rectangle is: %.2f\n", perimeter);
+                break;
+            case 2: 
+                printf("Enter the radius of the circle: ");
+                scanf("%f", &radius);
+                perimeter = 2 * 3.14159 * radius;
+                printf("The perimeter (circumference) of the circle is: %.2f\n", perimeter);
+                break;
+            case 3:
+                printf("Exiting the program.\n");
+                break;
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+    } while (choice != 3);
+    return 0;
+}
