@@ -1,0 +1,45 @@
+#include <stdio.h>
+int main() {
+    int choice;
+    float perimeter, side, length, breadth, radius;
+    const float pi = 3.14159;
+    printf("Choose the shape to calculate perimeter:\n");
+    printf("1. Square\n");
+    printf("2. Rectangle\n");
+    printf("3. Circle\n");
+    printf("Enter your choice (1/2/3): ");
+    scanf("%d", &choice);
+    if (choice == 1) {
+        printf("Enter the side of the square: ");
+        scanf("%f", &side);
+        if (side > 0) {
+            perimeter = 4 * side;
+            printf("Perimeter of the square: %.2f\n", perimeter);
+        } else {
+            printf("Side length must be positive.\n");
+        }
+    } else if (choice == 2) {
+        printf("Enter the length of the rectangle: ");
+        scanf("%f", &length);
+        printf("Enter the breadth of the rectangle: ");
+        scanf("%f", &breadth);
+        if (length > 0 && breadth > 0) {
+            perimeter = 2 * (length + breadth);
+            printf("Perimeter of the rectangle: %.2f\n", perimeter);
+        } else {
+            printf("Length and breadth must be positive.\n");
+        }
+    } else if (choice == 3) {
+        printf("Enter the radius of the circle: ");
+        scanf("%f", &radius);
+        if (radius > 0) {
+            perimeter = 2 * pi * radius;
+            printf("Perimeter (circumference) of the circle: %.2f\n", perimeter);
+        } else {
+            printf("Radius must be positive.\n");
+        }
+    } else {
+        printf("Invalid choice! Please select 1, 2, or 3.\n");
+    }
+    return 0;
+}
