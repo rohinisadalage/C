@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+int main() {
+    int choice;
+    float length, breadth, side, a, b, c, perimeter;
+
+    // Display menu to the user
+    printf("Choose the shape to calculate the perimeter:\n");
+    printf("1. Rectangle\n");
+    printf("2. Square\n");
+    printf("3. Triangle\n");
+    printf("Enter your choice (1-3): ");
+    scanf("%d", &choice);
+
+    // Nested if-else to calculate perimeter
+    if (choice == 1) {
+        // Rectangle
+        printf("Enter the length of the rectangle: ");
+        scanf("%f", &length);
+        printf("Enter the breadth of the rectangle: ");
+        scanf("%f", &breadth);
+        if (length > 0 && breadth > 0) {
+            perimeter = 2 * (length + breadth);
+            printf("The perimeter of the rectangle is: %.2f\n", perimeter);
+        } else {
+            printf("Invalid dimensions! Length and breadth must be positive.\n");
+        }
+    } else {
+        if (choice == 2) {
+            // Square
+            printf("Enter the side of the square: ");
+            scanf("%f", &side);
+            if (side > 0) {
+                perimeter = 4 * side;
+                printf("The perimeter of the square is: %.2f\n", perimeter);
+            } else {
+                printf("Invalid dimension! Side must be positive.\n");
+            }
+        } else {
+            if (choice == 3) {
+                // Triangle
+                printf("Enter the lengths of the three sides of the triangle:\n");
+                scanf("%f %f %f", &a, &b, &c);
+                if (a > 0 && b > 0 && c > 0 && (a + b > c) && (a + c > b) && (b + c > a)) {
+                    perimeter = a + b + c;
+                    printf("The perimeter of the triangle is: %.2f\n", perimeter);
+                } else {
+                    printf("Invalid dimensions! Ensure all sides are positive and satisfy the triangle inequality.\n");
+                }
+            } else {
+            
+                printf("Invalid choice! Please select a valid option (1-3).\n");
+            }
+        }
+    }
+    return 0;
+}
