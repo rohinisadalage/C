@@ -1,0 +1,17 @@
+#include <stdio.h>
+int main() {
+    float length, width, perimeter;
+    char choice;
+    do {
+        printf("Enter the length of the rectangle: ");
+        scanf("%f", &length);
+        printf("Enter the width of the rectangle: ");
+        scanf("%f", &width);
+        perimeter = 2 * (length + width);
+        printf("The perimeter of the rectangle is: %.2f\n", perimeter);
+        printf("Do you want to calculate the perimeter again? (y/n): ");
+        scanf(" %c", &choice);
+    } while (choice == 'y' || choice == 'Y');
+    printf("Program exited. Thank you!\n");
+    return 0;
+}
