@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Define the structure for a node
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+// Function to create a new node
+struct Node* createNode(int value) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    if (newNode == NULL) { // Check if memory allocation was successful
+        printf("Memory allocation failed.\n");
+        return NULL;
+    }
+    newNode->data = value;
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Function to display the linked list
+void displayList(struct Node* head) {
+    if (head == NULL) {
+        printf("The list is empty.\n");
+        return;
+    }
+    struct Node* temp = head;
+    while (temp != NULL) {
+        printf("%d -> ", temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
+int main() {
+    struct Node* head = NULL; // Initialize the head pointer
+    struct Node* temp = NULL;
+
+    // Create nodes
+    head = createNode(10);
+    if (head != NULL) {
+        temp = createNode(20);
+        if (temp != NULL) {
+            head->next = temp;
+
+            // Add another node
+            temp->next = createNode(30);
+            if (temp->next == NULL) {
+                printf("Failed to add the third node.\n");
+            }
+        } else {
+            printf("Failed to add the second node.\n");
+        }
+    } else {
+        printf("Failed to create the first node.\n");
+    }
+
+    // Display the list
+    displayList(head);
+
+    // Free memory
+    temp = head;
+    while (temp != NULL) {
+        struct Node* next = temp->next;
+        free(temp);
+        temp = next;
+    }
+
+    return 0;
+}
