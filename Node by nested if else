@@ -1,0 +1,39 @@
+#include <stdio.h>
+int main() {
+    int choice;
+    printf("Welcome to the Node Decision Program!\n");
+    printf("Choose your first path:\n");
+    printf("1. Go left\n");
+    printf("2. Go right\n");
+    scanf("%d", &choice);
+    if (choice == 1) {
+        printf("You chose to go left.\n");
+        printf("Now choose:\n");
+        printf("1. Climb the hill\n");
+        printf("2. Enter the cave\n");
+        scanf("%d", &choice);
+        if (choice == 1) {
+            printf("You climbed the hill and found a beautiful view!\n");
+        } else if (choice == 2) {
+            printf("You entered the cave and discovered hidden treasure!\n");
+        } else {
+            printf("Invalid choice. The path ends here.\n");
+        }
+    } else if (choice == 2) {
+        printf("You chose to go right.\n");
+        printf("Now choose:\n");
+        printf("1. Cross the river\n");
+        printf("2. Walk through the forest\n");
+        scanf("%d", &choice);
+        if (choice == 1) {
+            printf("You crossed the river and reached a small village!\n");
+        } else if (choice == 2) {
+            printf("You walked through the forest and found a hidden cabin!\n");
+        } else {
+            printf("Invalid choice. The path ends here.\n");
+        }
+    } else {
+        printf("Invalid choice. The program ends here.\n");
+    }
+    return 0;
+}
