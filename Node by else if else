@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct Node {
+    int data;
+    struct Node* next;
+};
+int main() {
+    struct Node* head = NULL; 
+    int choice, value;
+    while (1) {
+        printf("\nMenu:\n");
+        printf("1. Create a node\n");
+        printf("2. Display the node\n");
+        printf("3. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        if (choice == 1) {
+            if (head == NULL) {
+                head = (struct Node*)malloc(sizeof(struct Node));
+                if (head == NULL) {
+                    printf("Memory allocation failed!\n");
+                } else {
+                    printf("Enter data for the node: ");
+                    scanf("%d", &value);
+                    head->data = value;
+                    head->next = NULL;
+                    printf("Node created successfully.\n");
+                }
+            } else {
+                printf("Node already exists!\n");
+            }
+        } else if (choice == 2) {
+            if (head == NULL) {
+                printf("No node exists to display.\n");
+            } else {
+                printf("Node data: %d\n", head->data);
+            }
+        } else if (choice == 3) {
+            printf("Exiting program.\n");
+            break;
+        } else {
+            printf("Invalid choice. Please try again.\n");
+        }
+    }
+    if (head != NULL) {
+        free(head);
+        head = NULL;
+    }
+    return 0;
+}
