@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+class Person {
+private:
+    std::string name;
+  int age;
+public:
+    Person() : name("Unknown"), age(0)
+    Person(const std::string& name, int age) : name(name), age(age) {}
+    friend std::istream& operator>>(std::istream& input, Person& person);
+    friend std::ostream& operator<<(std::ostream& output, const Person& person);
+};
+std::istream& operator>>(std::istream& input, Person& person) {
+    std::cout << "Enter name: ";
+    input >> person.name;
+    std::cout << "Enter age: ";
+    input >> person.age;
+    return input;
+}
+std::ostream& operator<<(std::ostream& output, const Person& person) {
+    output << "Name: " << person.name << ", Age: " << person.age;
+    return output;
+}
+int main() {
+    Person person;
+    std::cin >> person;
+    std::cout << person << std::endl;
+    return 0;
+}
