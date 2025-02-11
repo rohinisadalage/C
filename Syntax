@@ -1,0 +1,40 @@
+#include <stdio.h>  // Standard input-output library
+
+// Function declaration
+void greet();
+
+int main() {
+    // Variable declaration
+    int number;
+    
+    // Print a message to the console
+    printf("Enter a number: ");
+    
+    // Take input from the user
+    scanf("%d", &number);
+
+    // Conditional statement
+    if (number % 2 == 0) {
+        printf("The number %d is even.\n", number);
+    } else {
+        printf("The number %d is odd.\n", number);
+    }
+
+    // Loop example
+    printf("Counting from 1 to %d:\n", number);
+    for (int i = 1; i <= number; i++) {
+        printf("%d ", i);
+    }
+    printf("\n");
+
+    // Function call
+    greet();
+
+    // Return statement
+    return 0;
+}
+
+// Function definition
+void greet() {
+    printf("Hello! This is a basic C program.\n");
+}
